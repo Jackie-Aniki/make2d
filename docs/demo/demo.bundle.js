@@ -49403,11 +49403,10 @@ Deprecated since v${version}`
           ) {
             this.mode = -1;
             this.frames = 0;
+            this.panels = [];
             this.domElement = null;
             this.containerElement = null;
-            this.panels = [];
             this.renderPanel = null;
-            this.wasInitDomElement = false;
             this.handleClickPanel = (event) => {
               event.preventDefault();
               this.showPanel(++this.mode % this.panels.length);
@@ -49424,10 +49423,6 @@ Deprecated since v${version}`
               this.pixiHooks,
               this
             );
-            if (containerElement) {
-              this.containerElement = containerElement;
-              this.initDomElement();
-            }
             if (
               typeof (renderer === null || renderer === void 0
                 ? void 0
@@ -49447,9 +49442,14 @@ Deprecated since v${version}`
               };
               frame();
             }
+            if (containerElement) {
+              this.containerElement = containerElement;
+              this.initDomElement();
+              this.showPanel();
+            }
           }
           initDomElement() {
-            if (this.containerElement && !this.wasInitDomElement) {
+            if (this.containerElement && !this.domElement) {
               this.domElement = document.createElement('div');
               this.domElement.id = stats_constants_1.DOM_ELEMENT_ID;
               this.domElement.addEventListener(
@@ -49458,7 +49458,6 @@ Deprecated since v${version}`
                 false
               );
               this.containerElement.appendChild(this.domElement);
-              this.wasInitDomElement = true;
             }
           }
           createStat(name, fg, bg) {
@@ -49466,7 +49465,7 @@ Deprecated since v${version}`
             this.panels.push({ name, fg, bg, statStorage });
             return statStorage;
           }
-          showPanel(id) {
+          showPanel(id = 0) {
             const panel = this.panels[id];
             if (panel) {
               this.removeDomRenderPanel();
@@ -49482,36 +49481,45 @@ Deprecated since v${version}`
             this.mode = -1;
           }
           createRenderPanel({ name, fg, bg, statStorage }) {
-            if (this.domElement) {
-              this.renderPanel = new stats_panel_1.RenderPanel(
-                name,
-                fg,
-                bg,
-                statStorage
-              );
-              if (this.renderPanel.dom) {
-                this.domElement.appendChild(this.renderPanel.dom);
-              }
+            if (!this.domElement) {
+              return;
+            }
+            this.renderPanel = new stats_panel_1.RenderPanel(
+              name,
+              fg,
+              bg,
+              statStorage
+            );
+            if (this.renderPanel.dom) {
+              this.domElement.appendChild(this.renderPanel.dom);
             }
           }
           removeDomRenderPanel() {
-            if (this.domElement && this.renderPanel && this.renderPanel.dom) {
+            var _a;
+            if (!this.domElement) {
+              return;
+            }
+            if (
+              (_a = this.renderPanel) === null || _a === void 0
+                ? void 0
+                : _a.dom
+            ) {
               this.domElement.removeChild(this.renderPanel.dom);
               this.renderPanel.destroy();
               this.renderPanel = null;
             }
           }
           removeDomElement() {
-            if (this.containerElement && this.domElement) {
-              this.containerElement.removeChild(this.domElement);
-              this.domElement.removeEventListener(
-                'click',
-                this.handleClickPanel,
-                false
-              );
-              this.domElement = null;
-              this.wasInitDomElement = false;
+            if (!this.domElement || !this.containerElement) {
+              return;
             }
+            this.containerElement.removeChild(this.domElement);
+            this.domElement.removeEventListener(
+              'click',
+              this.handleClickPanel,
+              false
+            );
+            this.domElement = null;
           }
           begin() {
             this.beginTime = (performance || Date).now();
@@ -72858,13 +72866,15 @@ Deprecated since v${version}`
           /**
            * add body font family to set font of pixi-stats
            */
-          showFPS(style = 'position: fixed; top: 0; right: 0; z-index: 1000;') {
+          showFPS(style) {
             const stats = new pixi_stats_1.Stats(
               this.pixi.renderer,
               this.pixi.ticker,
               document.body
             );
-            stats.domElement.setAttribute('style', style);
+            if (style) {
+              stats.domElement.setAttribute('style', style);
+            }
           }
           onUpdateDebug(graphics) {
             var _a, _b, _c, _d, _e, _f;
