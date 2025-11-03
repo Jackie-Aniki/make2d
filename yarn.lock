@@ -2017,10 +2017,10 @@ char-regex@^1.0.2:
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
   integrity sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==
 
-check2d@^9.30.1:
-  version "9.30.1"
-  resolved "https://registry.yarnpkg.com/check2d/-/check2d-9.30.1.tgz#3bdf654eeddef0efead6911d0173639987f8bc1e"
-  integrity sha512-qDuZUU0F4EuCcdPGjWMAiUnqEMOQd3Y2XyH71FH3AzPM9/xjlHioggzBN88nmS7Xi+X90SlbKhmxe6ym1mxIUQ==
+check2d@^9.31.0:
+  version "9.31.0"
+  resolved "https://registry.yarnpkg.com/check2d/-/check2d-9.31.0.tgz#7406a85b5c56a8aa8049ffb9285deb5bbf761fa3"
+  integrity sha512-D4MCEYr0P6fePev6hci/2O12+9dqbm70E8mhjHr8jM/bro1KpXbkAdtWFpElVptz6Pphi23wLQEzZxzJjYf3WA==
   dependencies:
     "@types/sat" "^0.0.35"
     poly-decomp-es "^0.4.2"
@@ -2965,10 +2965,10 @@ inherits@2, inherits@2.0.4:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-inject.min@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/inject.min/-/inject.min-2.1.1.tgz#7d336638eaa5064d52931e31f8dbe9eb2e1754b3"
-  integrity sha512-ZzVlzvHl7EAhbDdAPoPD/iTFlhaHTzWQx+YLPc2IVCdk5Y3uRSx1sN73+kkCBLu3jhUYNmStdkpkQGNe87jbDQ==
+inject.min@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/inject.min/-/inject.min-2.1.2.tgz#ddae0c2715f5b5c523ecef3d8ef1a4b05f6e8779"
+  integrity sha512-MbM4z63rYQQU65OzmjShxW1tAG+QO9HaWQshQ+aZOQEJHP+eQcJwgcl9kcvgd8pDplj7VuYpSfmfWTEW6bXfbw==
 
 interpret@^3.1.1:
   version "3.1.1"
