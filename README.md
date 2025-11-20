@@ -9,17 +9,17 @@ After making countless indie games, dozens made in html5 webgl, I like to have i
 2. lifecycle management ✔️ (solution below)
 3. efficient collision detection or physics ✔️ (check2d)
 
-## Lifecycle management
+### Lifecycle management problem
 
 * If you don't properly manage destroying an entity, stuff it had attached to it will become a memory leak and kill the app.
 * When you create a game world, its good to organize it in a tree like way of hierarchy of objects.
 * Let's take almost any entity in any game, most likely it has some stuff attached in this hierarchy (a home might have some chairs, a tank might have a driver and ammunition, etc.)
 
-So here, all classes of this framework implement `abstract class Lifecycle`.
-When a Lifecycle is destroyed, it emits and closes `destroy$` event subject.
-Along with destroying his children, which in turn behave the same.
-To destroy an entity just call `destroy()`.
-All Lifecycles also have `update$` event subject to which you may also subcribe to add your logic.
+### Lifecycle management solution
+
+* So, [all classes](https://jackie-aniki.github.io/make2d/hierarchy.html#Lifecycle) of this framework implement [LifecycleProps](https://jackie-aniki.github.io/make2d/interfaces/LifecycleProps.html).
+* When a Lifecycle is destroyed, it emits and closes `destroy$` event subject.
+* Along with destroying his children, which in turn behave the same.
 
 ## Usage
 
