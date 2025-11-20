@@ -20,13 +20,13 @@ Check out the [demo sandbox](https://jackie-aniki.github.io/make2d/demo/?fps&deb
 
 ## Features
 
-- [Drawing on WebGL canvas](https://npmjs.com/package/pixi.js)
-- [Collision detection](https://npmjs.com/package/detect-collisions)
-- [Lifecycle cleanup management](https://www.html5gamedevs.com/topic/44780-best-way-to-remove-objects-from-the-stage/)
-- [Reactive events](https://www.learnrxjs.io/learn-rxjs/subjects)
-- [State management](https://gamedevelopment.tutsplus.com/tutorials/finite-state-machines-theory-and-implementation--gamedev-11867)
+- [Lifecycle cleanup trees](https://www.html5gamedevs.com/topic/44780-best-way-to-remove-objects-from-the-stage/)
+- [Collision Detection](https://npmjs.com/package/check2d)
+- [WebGL with pixi.js](https://npmjs.com/package/pixi.js)
+- [rxjs events - update, destroy](https://www.learnrxjs.io/learn-rxjs/subjects)
 - [Unity-inspired architecture](https://docs.unity3d.com/Manual/CreatingGameplay.html)
-- Compatible with pixi version 6, 7 and ~8
+- [State management](https://gamedevelopment.tutsplus.com/tutorials/finite-state-machines-theory-and-implementation--gamedev-11867)
+- Can be used with pixi versions: `>=6, <=8`
 
 ## This FrameWork exports all those
 
