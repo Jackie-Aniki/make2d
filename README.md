@@ -6,7 +6,7 @@ Game FrameWork for JavaScript 2D WebGL Games. Unity-inspired architecture: GameO
 
 After making countless indie games, dozens made in html5 webgl, I like to have in such:
 1. efficient and mobile friendly drawing ✔️ (pixi)
-2. lifecycle management - expained below ✔️
+2. lifecycle management ✔️ (solution below)
 3. efficient collision detection or physics ✔️ (check2d)
 
 ## Lifecycle management
